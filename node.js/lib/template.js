@@ -1,7 +1,7 @@
 var sanitizeHtml = require('sanitize-html');
  
 module.exports = {
-  HTML:function(title, list, body, control){
+  HTML:function(title, list, body, control,authStatusUI){
     return `
     <!doctype html>
     <html>
@@ -10,6 +10,7 @@ module.exports = {
       <meta charset="utf-8">
     </head>
     <body>
+      ${authStatusUI}
       <h1><a href="/">WEB</a></h1>
       <a href="/author">author</a>
       ${list}

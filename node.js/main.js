@@ -2,11 +2,12 @@ var http = require('http');
 var url = require('url');
 var topic = require('./lib/topic');
 var author = require('./lib/author');
- 
+
 var app = http.createServer(function(request,response){
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
+    
     if(pathname === '/'){
       if(queryData.id === undefined){
         topic.home(request, response);
@@ -33,7 +34,13 @@ var app = http.createServer(function(request,response){
       author.update_process(request, response);
     } else if(pathname === '/author/delete_process'){
       author.delete_process(request, response);
-    } else {
+    } else if(pathname === '/login'){
+      topic.login(request, response);
+    } else if(pathname === '/login_process'){
+      topic.login_process(request, response);
+    }  else if(pathname === '/logout_process'){
+      topic.logout_process(request, response);
+    }else {
       response.writeHead(404);
       response.end('Not found');
     }

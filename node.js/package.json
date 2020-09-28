@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie": "^0.4.1",
     "mysql2": "^2.2.5",
     "sanitize-html": "^1.27.4"
   }
